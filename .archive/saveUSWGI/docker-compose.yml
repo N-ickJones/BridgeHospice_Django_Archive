@@ -1,0 +1,34 @@
+version: "3"
+
+services:
+  bridge_pg_dev:
+    image: postgres:alpine
+    container_name: bridge_pg_dev
+    hostname: bridge_pg_dev
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+  app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: bridge_dj_dev
+    hostname: bridge_dj_dev
+    env_file:
+      - ./.env.dev
+    ports:
+      - 9000:8000
+    volumes:
+      - ./app:/code
+    links:
+      - bridge_pg_dev
+    depends_on:
+      - bridge_pg_dev
+
+volumes:
+  postgres_data:

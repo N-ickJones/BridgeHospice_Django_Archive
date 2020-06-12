@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load cms_tags static %}
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+{% block content %}
+	{% placeholder 'content' %}
+{% endblock content %}
+
+
+{% comment %}
+<div class="text-center hero-container">
+        <a href="/" class="hover-dim" title="Click here for contact information.">
+            <p class="text-light hero-caption mb-1"><span class="bg bg-secondary-opaque px-2 rounded">EXTENDING LOVE, COMFORT, AND CARE</span></p>
+            <img src="{% static 'images/BridgeHospiceLogo.png' %}" class="img-fluid" alt="Bridge Hospice" style="width: 30%; max-width: 500px;"/>
+        </a>
+    </div>
+    <style>
+        .hover-dim:hover {
+            opacity: 0.8;
+        }
+        .bg-secondary-opaque {
+            padding-top: 5px;
+            background-color: rgba(0, 40, 86, 0.8);
+        }
+        .hero-container {
+            position: relative;
+            width: 100%;
+            overflow: visible;
+            transform: translate(0, -43%);
+            margin-bottom: -12%;
+        }
+
+        .hero-caption {
+            font-size: 40px !important;
+        }
+        @media (max-width: 1200px) {
+            .hero-caption {
+                font-size: 35px !important;
+            }
+        }
+        @media (max-width: 1000px) {
+            .hero-caption {
+                font-size: 30px !important;
+            }
+        }
+        @media (max-width: 768px) {
+            .hero-caption {
+                font-size: 20px !important;
+            }
+        }
+        @media (max-width: 445px) {
+            .hero-caption {
+                font-size: 15px !important;
+            }
+        }
+        @media (max-width: 335px) {
+            .hero-caption {
+                font-size: 12px !important;
+            }
+        }
+        @media (max-width: 261px) {
+            .hero-caption {
+                font-size: 11px !important;
+            }
+        }
+    </style>
+{% endcomment %}

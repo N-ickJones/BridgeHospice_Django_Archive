@@ -1,0 +1,10 @@
+
+/* Custom Bootstrap Options */
+$theme-colors: (
+    "primary": rgba(230, 108, 23, 1.0),
+    "secondary": #002856,
+);
+$font-family-sans-serif: "Helvetica", sans-serif;
+
+@import "site";
+@import "../node_modules/bootstrap/scss/bootstrap";

@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  bridge_db:
+    image: postgres
+    container_name: bridge_postgres
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+    restart: always
+  
+  django:
+    build: .
+    container_name: bridge_django
+    hostname: bridge_django
+    #command: python manage.py runserver # Development
+    command: bash -c "python manage.py migrate && python manage.py loaddata fixtures/all.json && gunicorn --bind 0.0.0.0:8000 bridge_cms.wsgi:application"
+    #command: gunicorn --bind 0.0.0.0:8000 bridge_cms.wsgi:application 
+    ports:
+      - 7000:8000
+    volumes:
+      - ./app:/code
+    links:
+      - bridge_db
+    depends_on:
+      - bridge_db
+

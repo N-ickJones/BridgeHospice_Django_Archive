@@ -1,0 +1,51 @@
+
+version: '3'
+
+services:
+  db:
+    image: postgres
+    container_name: bh_db_dev
+    hostname: bh_db_dev
+    env_file:
+      - ./.dev.db.env
+    restart: always
+    # volumes:
+    #  - bh_data_dev:/var/lib/postgresql/data/
+
+  web:
+    build:
+      context: ./app
+      dockerfile: Dockerfile.dev
+    container_name: bh_web_dev
+    hostname: bh_web_dev
+    command: python manage.py runserver 0.0.0.0:8000
+    env_file:
+      - ./.dev.web.env
+    volumes:
+      - ./app/.:/code
+  #    - bh_static_dev:/code/static
+  #    - bh_media_dev:/code/media
+    links:
+      - db
+    depends_on:
+      - db
+    ports:
+      - 8000:8000
+
+  #nginx:
+  #  build: ./nginx
+  #  container_name: bh_nginx_dev
+  #  hostname: bh_nginx_dev
+  #  volumes:
+  #    - ./nginx/nginx.conf.:/etc/nginx/conf.d/nginx.conf
+  #    - bh_static_dev:/code/static
+  #    - bh_media_dev:/code/media
+  #  ports:
+  #    - 8000:80
+  #  links:
+  #    - web
+  #  depends_on:
+  #    - web
+
+#volumes:
+  #bh_data_dev:

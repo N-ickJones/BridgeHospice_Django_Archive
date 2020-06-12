@@ -1,0 +1,55 @@
+{% load cms_tags menu_tags sekizai_tags static %}
+
+<!doctype html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="{% page_attribute 'meta_description' %}">
+    <meta name="author" content="{% page_attribute 'meta_author' %}">
+    <title>{% page_attribute 'title' %}</title>
+    <link href="{% static 'bootstrap/bootstrap.min.css' %}" rel="stylesheet">
+    {% render_block "css" %}
+</head>
+<body class="bg-light">
+    {% cms_toolbar %}
+
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v7.0&appId=2504733999848601&autoLogAppEvents=1"></script>
+
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-secondary">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <img src="{% static 'images/favicon.ico' %}" style="width: 25px; height: 25px; margin-bottom: 4px;, margin-right: 4px;" alt="Bridge Hospice Logo" />
+                Bridge Hospice
+            </a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    {% show_menu 0 100 100 100 "custom/navigation.html" %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    {% block content %}{% endblock content %}
+
+    <footer>
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col-12">
+                    {% static_placeholder "Footer" %}
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+    <script src="{% static 'node_modules/jquery/dist/jquery.slim.min.js' %}"></script>
+    <script src="{% static 'node_modules/bootstrap/dist/js/bootstrap.bundle.js' %}"></script>
+    {% render_block "js" %}
+</body>
+</html>

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load cms_tags %}
+{% block title %}{% page_attribute "page_title" %}{% endblock title %}
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 p-3 mt-3">
+                <div class="row">
+                    <div class="col">
+                        <h2><b>{% page_attribute "page_title" %}</b></h2>
+                    </div>
+                    <div class="col">
+                        {% placeholder 'subheading' %}
+                    </div>
+                </div>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item">
+                        <a href="/">Home</a>
+                    </li>
+                    <li class="breadcrumb-item active">{% page_attribute "page_title" %}</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+	{% placeholder content or %}
+        <div class="container">
+            No Content
+        </div>
+	{% endplaceholder %}
+{% endblock content %}
