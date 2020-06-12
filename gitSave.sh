@@ -1,4 +1,3 @@
-
 env=$1
 commit=$2
 
@@ -13,8 +12,6 @@ else
         exit 1
     fi
 fi
-
-cmd_dump='python manage.py dumpdata > app/fixtures/all.json'
 
 # Save the database
 echo "Saving the database..."

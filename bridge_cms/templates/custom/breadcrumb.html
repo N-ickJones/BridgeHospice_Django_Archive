@@ -1,0 +1,8 @@
+{% load menu_tags %}
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        {% block breadcrumb %}
+        {% show_breadcrumb "custom/breadcrumb-items.html" %}
+        {% endblock %}
+    </ol>
+</nav>

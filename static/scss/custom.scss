@@ -1,0 +1,174 @@
+/* For CMS Toolbar */
+.cms-toolbar-expanded body, .cms-toolbar-expanded .fixed-top {
+  top: 46px;
+}
+
+/* Prevent Overlapping of Navbar & Content */
+body {
+  padding-top: 56px;
+}
+
+/* Text Contrast */
+.text-shadow-white-20 {
+    color: white;
+    font-size: 20px;
+    text-shadow:
+        0.05em 0 black,
+        0 0.05em black,
+        -0.05em 0 black,
+        0 -0.05em black,
+        -0.05em -0.05em black,
+        -0.05em 0.05em black,
+        0.05em -0.05em black,
+        0.05em 0.05em black;
+}
+.text-shadow
+{
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.text-black {
+	color: black;
+}
+
+.nav-box {
+	min-height: 275px;
+	border:  2px solid var(--light);
+	border-top: 0;
+}
+
+.hover-dim:hover {
+    opacity: 0.8;
+}
+
+.bg-secondary-opaque {
+    padding-top: 5px;
+    background-color: rgba(0, 40, 86, 0.8);
+}
+
+.hero-container {
+    position: relative;
+    width: 100%;
+    overflow: visible;
+    transform: translate(0, -43%);
+    margin-bottom: -12%;
+}
+
+.hero-caption {
+    font-size: 40px !important;
+}
+@media (max-width: 1200px) {
+    .hero-caption {
+        font-size: 35px !important;
+    }
+}
+@media (max-width: 1000px) {
+    .hero-caption {
+        font-size: 30px !important;
+
+    }
+}
+@media (max-width: 768px) {
+    .hero-caption {
+        font-size: 20px !important;
+    }
+}
+@media (max-width: 460px) {
+    .hero-caption {
+        font-size: 15px !important;
+    }
+}
+@media (max-width: 360px) {
+    .hero-caption {
+        font-size: 12px !important;
+    }
+}
+@media (max-width: 261px) {
+    .hero-caption {
+        font-size: 11px !important;
+    }
+}
+
+.d-center {
+   @extend .d-flex, .justify-content-center, .align-content-center;
+}
+
+.nav-box {
+  @extend .px-3, .py-4, .rounded, .text-white, .text-shadow;
+  min-height: 275px;
+  border:  2px solid var(--light);
+  border-top: 0;
+}
+
+.bg-orange {
+	background-color: #e66c17;
+}
+.bg-purple {
+	background-color: #a122f1;
+}
+.bg-cyan {
+	background-color: #1a98c9;
+}
+.bg-darkblue {
+	background-color: #002857;
+}
+.bg-yellow {
+	background-color: #fefc01;
+}
+
+.valor-text > div:nth-child(1) {
+	font-size: 6.25rem;
+	font-weight: 500;
+	padding-left: 10px;
+}
+.valor-text > div:nth-child(2) {
+	font-size: 1.5625rem;
+	font-weight: 300;
+	padding-left: 10px;
+}
+.valor-text > div:nth-child(3) {
+	font-size: 2.4375rem;
+	font-weight: 500;
+	padding-left: 10px;
+}
+
+@media(max-width: 1000px) {
+	.valor-text > div:nth-child(1) {
+		font-size: 4.375rem;
+		font-weight: 500;
+		padding-left: 0;
+	}
+	.valor-text > div:nth-child(2) {
+		font-size: 1.25rem;
+		font-weight: 300;
+		padding-left: 0;
+	}
+	.valor-text > div:nth-child(3) {
+		font-size: 1.875rem;
+		font-weight: 500;
+		padding-left: 0;
+	}
+}
+
+@media(max-width: 445px) {
+	.valor-text > div:nth-child(1) {
+		font-size: 3rem;
+		font-weight: 500;
+		padding-left: 0;
+	}
+	.valor-text > div:nth-child(2) {
+		font-size: 0.85rem;
+		font-weight: 300;
+		padding-left: 0;
+	}
+	.valor-text > div:nth-child(3) {
+		font-size: 1.3rem;
+		font-weight: 500;
+		padding-left: 0;
+	}
+}
+
+@media(max-width: 520px) {
+  #daves-wishes {
+    min-height: 460px;
+  }
+}

@@ -1,0 +1,18 @@
+{% load menu_tags static %}
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-secondary">
+    <div class="container">
+        <a class="navbar-brand {% if current_page.is_home %}text-primary{% else %}text-light{% endif %}" href="/">
+            <img src="{% static 'images/favicon.ico' %}" style="width: 25px; height: 25px; margin-bottom: 4px;, margin-right: 4px;" alt="Bridge Hospice Logo" />
+            Bridge Hospice
+        </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                {% show_menu 0 100 100 100 "custom/nav-items.html" %}
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,9 @@
+{% for ancestor in ancestors %}
+     {% if forloop.last %}
+         <li class="breadcrumb-item active" aria-current="page">{{ ancestor.get_menu_title }}</li>
+     {% else %}
+         <li class="breadcrumb-item">
+            <a href="{{ ancestor.get_absolute_url }}">{{ ancestor.get_menu_title }}</a>
+         </li>
+     {% endif %}
+ {% endfor %}

@@ -1,4 +1,3 @@
-
 import os
 from decouple import config, Csv
 
@@ -6,6 +5,8 @@ gettext = lambda s: s
 
 DATA_DIR = os.path.dirname(os.path.dirname(__file__))
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
 
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
@@ -80,21 +81,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-LANGUAGE_CODE = 'en'
-TIME_ZONE = 'America/Chicago'
-USE_I18N = True
-USE_L10N = True
-USE_TZ = True
-STATIC_URL = '/static/'
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(DATA_DIR, 'media')
-STATIC_ROOT = os.path.join(DATA_DIR, 'static')
-
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'bridge_cms', 'static'),
-)
-SITE_ID = 1
 
 TEMPLATES = [
     {
@@ -195,18 +181,31 @@ THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.filters'
 )
 
-EMAIL_HOST = "smtp.zoho.com"
-EMAIL_HOST_USER = "webmaster@bridge-hospice.com"
-EMAIL_HOST_PASSWORD = "UBd9Ca.*jwk*.n3"
-EMAIL_PORT = 465    # 587 for tls
-EMAIL_USE_SSL = True
-EMAIL_USE_TLS = False
+LANGUAGE_CODE = 'en'
+TIME_ZONE = 'America/Chicago'
+USE_I18N = True
+USE_L10N = True
+USE_TZ = True
 
-"""
-EMAIL_HOST = "smtp.mailgun.org"
-EMAIL_HOST_USER = "postmaster@mg.bridge-hospice.com"
-EMAIL_HOST_PASSWORD = "4a347ad40f5d5d028e686f60f7567890-7fba8a4e-cfd12763"
-EMAIL_PORT = 465    # 587 for tls
-EMAIL_USE_SSL = True
-EMAIL_USE_TLS = False
-"""
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(DATA_DIR, 'media')
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(DATA_DIR, 'static')
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'bridge_cms', 'static'),
+)
+
+SITE_ID = 1
+
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = config('EMAIL_PORT', cast=int)
+EMAIL_USE_SSL = config('EMAIL_USE_SSL', default=True, cast=bool)
+EMAIL_USE_TLS = config('EMAIL_USE_TLS', default=False, cast=bool)
+
+# LOGIN_URL = 'login'
+# LOGOUT_REDIRECT_URL = 'home'
+# LOGIN_REDIRECT_URL = 'dashboard:home'
