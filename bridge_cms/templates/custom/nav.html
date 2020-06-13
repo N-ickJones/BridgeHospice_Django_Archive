@@ -1,8 +1,8 @@
 {% load menu_tags static %}
 
-<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-secondary">
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light shadow" style="">
     <div class="container">
-        <a class="navbar-brand {% if current_page.is_home %}text-primary{% else %}text-light{% endif %}" href="/">
+        <a class="navbar-brand {% if current_page.is_home %}text-dark{% else %}text-secondary{% endif %}" href="/">
             <img src="{% static 'images/favicon.ico' %}" style="width: 25px; height: 25px; margin-bottom: 4px;, margin-right: 4px;" alt="Bridge Hospice Logo" />
             Bridge Hospice
         </a>
