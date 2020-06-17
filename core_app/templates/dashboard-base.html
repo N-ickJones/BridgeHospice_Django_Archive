@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+{% endblock title %}
+
+{% block navbar %}
+
+{% endblock navbar %}
+
+{% block content %}
+<div class="container">
+    <div class="row pt-3">
+        <div class="col-3 list-group">
+            <a href="{% url 'app:dashboard' %}" class="list-group-item list-group-item-action{% if "/dashboard/" == request.path %} active{% endif %}">Dashboard</a>
+            <a href="{% url 'app:function01' %}" class="list-group-item list-group-item-action{% if "/f1/" in request.path %} active{% endif %}">Function01</a>
+        </div>
+        <div class="col-9">
+            {% block dashboard_content %}
+            {% endblock dashboard_content%}
+        </div>
+    </div>
+</div>
+{% endblock content %}
