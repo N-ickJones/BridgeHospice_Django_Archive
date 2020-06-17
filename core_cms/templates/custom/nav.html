@@ -1,0 +1,51 @@
+{% load menu_tags static %}
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light shadow" style="">
+    <div class="container">
+        <a class="navbar-brand {% if current_page.is_home %}text-secondary{% else %}text-dark{% endif %}" href="/">
+            <img src="{% static 'images/favicon.ico' %}" style="width: 25px; height: 25px; margin-bottom: 4px;, margin-right: 4px;" alt="Bridge Hospice Logo" />
+            Bridge Hospice
+        </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                {% show_menu 0 100 100 100 "custom/nav-items.html" %}
+                {% comment %}
+                <li id="navbarDropdown-Account" class="nav-item {% if "/signup/" in request.path %}active{% endif %} dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-Account" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <span class="d-inline d-lg-none">Account</span><i class="fas fa-user-circle pl-2 pr-md-0"></i>
+                    </a>
+
+
+                    {% if user.is_authenticated %}
+                        <div class="dropdown-menu" aria-labelledby="loginDropdown">
+                            <a class="dropdown-item" href="{% url 'app:dashboard' %}">Dashboard</a>
+                            <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                        </div>
+                    {% else %}
+                        <div class="dropdown-menu" aria-labelledby="loginDropdown">
+                            <a class="dropdown-item" href="{% url 'login' %}">Login</a>
+                            <a class="dropdown-item" href="{% url 'forms:signup' %}">Signup</a>
+                        </div>
+                    {% endif %}
+
+                </li>
+                {% endcomment %}
+            </ul>
+        </div>
+    </div>
+
+</nav>
+
+{% if cms_toolbar %}
+    {% with offset=102 %}
+        {% include 'custom/nav-progress.html' %}
+    {% endwith %}
+{% else %}
+    {% with offset=56 %}
+        {% include 'custom/nav-progress.html' %}
+    {% endwith %}
+{% endif %}
+{% include 'message.html' %}

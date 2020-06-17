@@ -15,8 +15,8 @@ services:
     container_name: bridge_django
     hostname: bridge_django
     #command: python manage.py runserver # Development
-    command: bash -c "python manage.py migrate && python manage.py loaddata fixtures/all.json && gunicorn --bind 0.0.0.0:8000 bridge_cms.wsgi:application"
-    #command: gunicorn --bind 0.0.0.0:8000 bridge_cms.wsgi:application 
+    command: bash -c "python manage.py migrate && python manage.py loaddata fixtures/all.json && gunicorn --bind 0.0.0.0:8000 core_cms.wsgi:application"
+    #command: gunicorn --bind 0.0.0.0:8000 core_cms.wsgi:application
     ports:
       - 7000:8000
     volumes:

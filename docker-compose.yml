@@ -2,60 +2,65 @@ version: '3.8'
 
 services:
   sass:
-    build: bridge_cms/static/scss/.
+    build: core_cms/static/scss/.
     container_name: bh_sass_dev
     hostname: bh_sass_dev
     env_file: .env
-    restart: always
+    restart: unless-stopped
     command: sass --watch bootstrap.scss:bootstrap.min.css --style compressed
     volumes:
-      - ./bridge_cms/static:/app/bridge_cms/static
+      - ./core_cms/static:/app/core_cms/static
+    networks:
+      - bh_network_dev
 
   db:
     image: postgres
     container_name: bh_db_dev
     hostname: bh_db_dev
     env_file: .env
-    restart: always
+    restart: unless-stopped
     ports:
       - 5432:5432
     volumes:
       - bh_db_dev:/var/lib/postgresql/data
+    networks:
+      - bh_network_dev
 
   web:
     build: .
     container_name: bh_web_dev
     hostname: bh_web_dev
     env_file: .env
-    restart: always
+    restart: unless-stopped
     command: python manage.py runserver 0.0.0.0:8000
-    # entrypoint: entrypoint.sh
+    entrypoint: ./entrypoint.sh
     volumes:
       - .:/app:rw
-    expose:
-      - 8000
-    links:
-      - db
-      - sass
-    depends_on:
-      - db
-      - sass
-
-  nginx:
-    build: ./nginx
-    container_name: bh_nginx_dev
-    hostname: bh_nginx_dev
-    volumes:
-      - ./nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
-      - ./static:/app/static
-      - ./media:/app/media
+      - ./core_cms/static:/app/core_cms/static
+      - ./core_cms/static/js:/app/core_cms/static/js
     ports:
-      - 8000:80
-    links:
-      - web
-    depends_on:
-      - web
+      - 8000:8000
+    networks:
+      - bh_network_dev
+
+  #nginx:
+  #  build: ./nginx
+  #  container_name: bh_nginx_dev
+  #  hostname: bh_nginx_dev
+  #  volumes:
+  #    - ./nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf
+  #    - ./static:/app/static
+  #    - ./media:/app/media
+  #  ports:
+  #    - 8000:80
+  #  links:
+  #    - web
+  #  depends_on:
+  #    - web
+
+networks:
+  bh_network_dev:
+    driver: bridge
 
 volumes:
   bh_db_dev:
-

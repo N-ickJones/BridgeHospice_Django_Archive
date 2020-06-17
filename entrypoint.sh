@@ -18,7 +18,7 @@ echo "-- Finished Startup Commands --"
 # Run Cronjobs and tail the log file
 # cron && tail -f /var/log/cron.log
 
-python manage.py collectstatic --noinput
+python manage.py collectstatic --noinput > /dev/null 2>&1
 
 
 exec "$@"

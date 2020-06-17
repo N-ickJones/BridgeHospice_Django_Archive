@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres
+    container_name: bh_db_prod
+    hostname: bh_db_prod
+    env_file: .env.prod
+    restart: always
+    volumes:
+      - bh_db_prod:/var/lib/postgresql/data/
+    networks:
+      - bh_network_prod
+
+  web:
+    build: .
+    container_name: bh_web_prod
+    hostname: bh_web_prod
+    env_file: .env.prod
+    restart: always
+    command: gunicorn --bind 0.0.0.0:8000 core_cms.wsgi:application
+    entrypoint: ./entrypoint.sh
+    volumes:
+      - bh_static_prod:/app/static
+      - bh_media_prod:/app/media
+    networks:
+      - bh_network_prod
+
+  nginx:
+    build: ./nginx
+    container_name: bh_nginx_prod
+    hostname: bh_nginx_prod
+    restart: always
+    volumes:
+      - bh_static_prod:/app/static
+      - bh_media_prod:/app/media
+    ports:
+      - 7000:80
+    networks:
+      - bh_network_prod
+
+networks:
+  bh_network_prod:
+    driver: bridge
+
+volumes:
+  bh_db_prod:
+  bh_static_prod:
+  bh_media_prod:
+
+# docker volume inspect h_db_prod
+# docker volume create h_db_prod

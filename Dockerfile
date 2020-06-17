@@ -44,4 +44,4 @@ RUN apt-get update && apt-get -y install netcat
 # COPY --from=dependencies /root/chat/prod_node_modules ./node_modules
 
 
-ENTRYPOINT ["/app/entrypoint.sh"]
+# ENTRYPOINT ["/app/entrypoint.sh"]
