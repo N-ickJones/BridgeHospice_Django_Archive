@@ -29,9 +29,8 @@ body {
         0.05em -0.05em black,
         0.05em 0.05em black;
 }
-.text-shadow
-{
-  text-shadow: 0 0 10px rgba(0,0,0,0.5);
+.text-shadow {
+  text-shadow: 0 0 12px rgba(0,0,0,1);
 }
 .text-black {
 	color: black;
@@ -48,7 +47,6 @@ body {
 }
 
 .bg-secondary-opaque {
-    padding-top: 5px;
     background-color: rgba(0, 40, 86, 0.8);
 }
 
@@ -89,7 +87,7 @@ body {
         font-size: 12px !important;
     }
 }
-@media (max-width: 261px) {
+@media (max-width: 300px) {
     .hero-caption {
         font-size: 11px !important;
     }
