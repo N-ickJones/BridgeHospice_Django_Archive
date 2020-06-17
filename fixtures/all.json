@@ -17,57 +17,6 @@
     }
 },
 {
-    "model": "auth.user",
-    "fields": {
-        "password": "pbkdf2_sha256$150000$Fhd8hdBFoTNd$f3XnHeKD8kWBkNTHvLd7cWYfepbuE8BhM/Lx6EIQOjY=",
-        "last_login": "2020-05-18T07:12:12Z",
-        "is_superuser": true,
-        "username": "kasey_cox",
-        "first_name": "Kasey",
-        "last_name": "Cox",
-        "email": "kasey.cox@bridge-hospice.com",
-        "is_staff": true,
-        "is_active": true,
-        "date_joined": "2020-05-18T07:11:42Z",
-        "groups": [],
-        "user_permissions": []
-    }
-},
-{
-    "model": "auth.user",
-    "fields": {
-        "password": "pbkdf2_sha256$150000$utTnJeZDhSkn$l400YRwVOy2AtJjcA0hoga7zp++JUVceCdDNw310aSU=",
-        "last_login": "2020-05-31T22:25:02.868Z",
-        "is_superuser": false,
-        "username": "brooke.zavala",
-        "first_name": "Brooke",
-        "last_name": "Zavala",
-        "email": "brook.zavala@bridge-hospice.com",
-        "is_staff": true,
-        "is_active": true,
-        "date_joined": "2020-05-31T22:05:25Z",
-        "groups": [],
-        "user_permissions": []
-    }
-},
-{
-    "model": "auth.user",
-    "fields": {
-        "password": "pbkdf2_sha256$150000$bHYKOM0xSeZJ$Om9qTGrAli3Dx1lEv9P/XgqzsSGKzM1s+zin5yq11tg=",
-        "last_login": "2020-06-17T02:51:31.699Z",
-        "is_superuser": false,
-        "username": "mail66@mail.com",
-        "first_name": "fname",
-        "last_name": "lname",
-        "email": "mail66@mail.com",
-        "is_staff": false,
-        "is_active": true,
-        "date_joined": "2020-06-17T02:51:31.651Z",
-        "groups": [],
-        "user_permissions": []
-    }
-},
-{
     "model": "sessions.session",
     "pk": "1tr5lyx17b5x7simr73dibps0k6cmaqx",
     "fields": {
@@ -2435,24 +2384,6 @@
 },
 {
     "model": "admin.logentry",
-    "pk": 170,
-    "fields": {
-        "action_time": "2020-05-31T22:10:04.387Z",
-        "user": [
-            "brooke.zavala"
-        ],
-        "content_type": [
-            "forms",
-            "volunteerapplication"
-        ],
-        "object_id": "2",
-        "object_repr": "Volunteer Application: fname lname",
-        "action_flag": 3,
-        "change_message": ""
-    }
-},
-{
-    "model": "admin.logentry",
     "pk": 171,
     "fields": {
         "action_time": "2020-05-31T22:18:28.848Z",
@@ -2485,24 +2416,6 @@
         "object_repr": "Volunteer Coordinator",
         "action_flag": 2,
         "change_message": "[{\"changed\": {\"fields\": [\"permissions\"]}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 173,
-    "fields": {
-        "action_time": "2020-05-31T22:25:09.214Z",
-        "user": [
-            "brooke.zavala"
-        ],
-        "content_type": [
-            "cms",
-            "usersettings"
-        ],
-        "object_id": "4",
-        "object_repr": "brooke.zavala",
-        "action_flag": 2,
-        "change_message": "[]"
     }
 },
 {
@@ -5926,6 +5839,78 @@
     }
 },
 {
+    "model": "admin.logentry",
+    "pk": 364,
+    "fields": {
+        "action_time": "2020-06-17T06:41:00.908Z",
+        "user": [
+            "webmaster"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "4",
+        "object_repr": "brooke.zavala",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 365,
+    "fields": {
+        "action_time": "2020-06-17T06:41:00.909Z",
+        "user": [
+            "webmaster"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "3",
+        "object_repr": "kasey_cox",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 366,
+    "fields": {
+        "action_time": "2020-06-17T06:41:00.910Z",
+        "user": [
+            "webmaster"
+        ],
+        "content_type": [
+            "auth",
+            "user"
+        ],
+        "object_id": "5",
+        "object_repr": "mail66@mail.com",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 367,
+    "fields": {
+        "action_time": "2020-06-17T06:41:19.695Z",
+        "user": [
+            "webmaster"
+        ],
+        "content_type": [
+            "core_forms",
+            "profile"
+        ],
+        "object_id": "1",
+        "object_repr": "Nicholas Jones",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
     "model": "sites.site",
     "fields": {
         "domain": "bridge-hospice.com",
@@ -5941,28 +5926,6 @@
         ],
         "language": "en",
         "clipboard": 12
-    }
-},
-{
-    "model": "cms.usersettings",
-    "pk": 3,
-    "fields": {
-        "user": [
-            "kasey_cox"
-        ],
-        "language": "en",
-        "clipboard": 13
-    }
-},
-{
-    "model": "cms.usersettings",
-    "pk": 4,
-    "fields": {
-        "user": [
-            "brooke.zavala"
-        ],
-        "language": "en",
-        "clipboard": 58
     }
 },
 {
@@ -6731,32 +6694,6 @@
             87,
             88
         ]
-    }
-},
-{
-    "model": "cms.pageuser",
-    "fields": {
-        "user_ptr": [
-            "kasey_cox"
-        ],
-        "created_by": [
-            "webmaster"
-        ],
-        "groups": [],
-        "user_permissions": []
-    }
-},
-{
-    "model": "cms.pageuser",
-    "fields": {
-        "user_ptr": [
-            "brooke.zavala"
-        ],
-        "created_by": [
-            "webmaster"
-        ],
-        "groups": [],
-        "user_permissions": []
     }
 },
 {
@@ -15534,62 +15471,6 @@
         "keyboard_shortcuts": true,
         "scrollwheel": true,
         "cmsplugin_ptr": 2306
-    }
-},
-{
-    "model": "core_forms.profile",
-    "pk": 1,
-    "fields": {
-        "user": [
-            "webmaster"
-        ],
-        "street_address": "",
-        "city": "",
-        "state": "TX",
-        "zip_code": "",
-        "mobile_phone": ""
-    }
-},
-{
-    "model": "core_forms.profile",
-    "pk": 2,
-    "fields": {
-        "user": [
-            "kasey_cox"
-        ],
-        "street_address": "",
-        "city": "",
-        "state": "TX",
-        "zip_code": "",
-        "mobile_phone": ""
-    }
-},
-{
-    "model": "core_forms.profile",
-    "pk": 3,
-    "fields": {
-        "user": [
-            "brooke.zavala"
-        ],
-        "street_address": "",
-        "city": "",
-        "state": "TX",
-        "zip_code": "",
-        "mobile_phone": ""
-    }
-},
-{
-    "model": "core_forms.profile",
-    "pk": 4,
-    "fields": {
-        "user": [
-            "mail66@mail.com"
-        ],
-        "street_address": "1234 Street",
-        "city": "Lubbock",
-        "state": "TX",
-        "zip_code": "77339",
-        "mobile_phone": "+13434322211"
     }
 }
 ]
