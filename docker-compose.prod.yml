@@ -50,3 +50,4 @@ volumes:
 
 # docker volume inspect h_db_prod
 # docker volume create h_db_prod
+# docker-compose exec web python manage.py dumpdata --natural-foreign --natural-primary -e contenttypes -e auth.Permission --indent 4 > fixtures/all2.json
