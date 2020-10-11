@@ -25,23 +25,32 @@
     <script src="{% static 'node_modules/bootstrap/dist/js/bootstrap.bundle.js' %}"></script>
     {% render_block "js" %}
 	<script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '1062640340860070',
-          xfbml      : true,
-          version    : 'v8.0'
-        });
-        FB.AppEvents.logPageView();
-        jQuery('#fb-root').trigger('facebook:init');
-      };
+        function Deferred() {
+          var self = this;
+          this.promise = new Promise(function(resolve, reject) {
+            self.reject = reject
+            self.resolve = resolve
+          })
+        }
+        window.fbLoaded = (new Deferred());
 
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "https://connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
+        window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '1062640340860070',
+              xfbml      : true,
+              version    : 'v8.0'
+            });
+            //FB.AppEvents.logPageView();
+            fbLoaded.resolve();
+        };
+
+        (function(d, s, id){
+             var js, fjs = d.getElementsByTagName(s)[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement(s); js.id = id;
+             js.src = "https://connect.facebook.net/en_US/sdk.js";
+             fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
     </script>
 
     {% cms_toolbar %}
