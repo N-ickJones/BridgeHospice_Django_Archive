@@ -30,7 +30,7 @@ class SignUpForm(UserCreationForm):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.layout = Layout(
-            Row(Column(HTML('<h2 class="text-center">Bridge Hospice Signup</h2><hr>'), css_class='col-12')),
+            Row(Column(HTML('<h2 class="text-center">BRIDGE Hospice Signup</h2><hr>'), css_class='col-12')),
             Row(
                 Column('first_name', css_class='form-group col-12 col-md-6'),
                 Column('last_name', css_class='form-group col-12 col-md-6'),

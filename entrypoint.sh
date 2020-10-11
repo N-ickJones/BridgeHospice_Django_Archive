@@ -8,11 +8,11 @@ echo "-- Finished loading PostgreSQL --"
 
 echo "-- Running Startup Commands --"
 echo "Making Django Migrations"
-python manage.py makemigrations
+#python manage.py makemigrations
 echo "Migrating Django to PostgreSQL"
-python manage.py migrate
+#python manage.py migrate
 echo "Loading User Groups Fixture into PostgreSQL"
-python manage.py loaddata fixtures/all.json
+#python manage.py loaddata fixtures/all.json
 echo "-- Finished Startup Commands --"
 
 # Run Cronjobs and tail the log file
