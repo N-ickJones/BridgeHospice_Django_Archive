@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres
+    container_name: bh_db_stage
+    hostname: bh_db_stage
+    env_file: .env.stage
+    restart: always
+    volumes:
+      - bh_db_stage:/var/lib/postgresql/data/
+    networks:
+      - bh_network_stage
+
+  web:
+    build: .
+    container_name: bh_web_stage
+    hostname: bh_web_stage
+    env_file: .env.stage
+    restart: always
+    command: gunicorn --bind 0.0.0.0:8000 core_cms.wsgi:application
+    entrypoint: ./entrypoint.sh
+    volumes:
+      - bh_static_stage:/app/static
+      - bh_media_stage:/app/media
+    networks:
+      - bh_network_stage
+
+  nginx:
+    build: ./nginx
+    container_name: bh_nginx_stage
+    hostname: bh_nginx_stage
+    restart: always
+    volumes:
+      - bh_static_stage:/app/static
+      - bh_media_stage:/app/media
+    ports:
+      - 7001:80
+    networks:
+      - bh_network_stage
+
+networks:
+  bh_network_stage:
+    driver: bridge
+
+volumes:
+  bh_db_stage:
+  bh_static_stage:
+  bh_media_stage:
+
+# docker volume inspect h_db_prod
+# docker volume create h_db_prod
+# docker-compose exec web python manage.py dumpdata --natural-foreign --natural-primary -e contenttypes -e auth.Permission --indent 4 > fixtures/all.json
