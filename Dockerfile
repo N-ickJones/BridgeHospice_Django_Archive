@@ -14,11 +14,12 @@ RUN pip install --upgrade pip
 COPY requirements.txt /app
 RUN pip install -r requirements.txt
 
+RUN apt-get update && apt-get -y install netcat && apt-get -y install cron
+
 # Source
 COPY . /app
 
 # Install Netcat to ensure app start transaction... used in entrypoint.sh
-RUN apt-get update && apt-get -y install netcat && apt-get -y install cron 
 # && apt-get install cron
 
     # Cron
