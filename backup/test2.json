@@ -15453,42 +15453,6 @@
 },
 {
   "model": "auth.permission",
-  "pk": 317,
-  "fields": {
-    "name": "Can add image",
-    "content_type": 81,
-    "codename": "add_image"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 318,
-  "fields": {
-    "name": "Can change image",
-    "content_type": 81,
-    "codename": "change_image"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 319,
-  "fields": {
-    "name": "Can delete image",
-    "content_type": 81,
-    "codename": "delete_image"
-  }
-},
-{
-  "model": "auth.permission",
-  "pk": 320,
-  "fields": {
-    "name": "Can view image",
-    "content_type": 81,
-    "codename": "view_image"
-  }
-},
-{
-  "model": "auth.permission",
   "pk": 321,
   "fields": {
     "name": "Can add attachment",
