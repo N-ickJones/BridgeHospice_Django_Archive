@@ -13338,15 +13338,6 @@
 },
 {
   "model": "auth.permission",
-  "pk": 81,
-  "fields": {
-    "name": "Can change urlconf revision",
-    "content_type": 20,
-    "codename": "change_urlconfrevision"
-  }
-},
-{
-  "model": "auth.permission",
   "pk": 82,
   "fields": {
     "name": "Can delete urlconf revision",
