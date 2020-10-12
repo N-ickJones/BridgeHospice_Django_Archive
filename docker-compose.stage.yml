@@ -21,6 +21,7 @@ services:
     command: gunicorn --bind 0.0.0.0:8000 core_cms.wsgi:application
     entrypoint: ./entrypoint.sh
     volumes:
+      - .:/app:rw
       - bh_static_stage:/app/static
       - bh_media_stage:/app/media
     networks:

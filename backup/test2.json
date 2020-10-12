@@ -616,38 +616,6 @@
   }
 },
 {
-  "model": "contenttypes.contenttype",
-  "pk": 81,
-  "fields": {
-    "app_label": "core_app",
-    "model": "image"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 82,
-  "fields": {
-    "app_label": "core_app",
-    "model": "attachment"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 83,
-  "fields": {
-    "app_label": "core_app",
-    "model": "post"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 84,
-  "fields": {
-    "app_label": "core_app",
-    "model": "target"
-  }
-},
-{
   "model": "sessions.session",
   "pk": "1tr5lyx17b5x7simr73dibps0k6cmaqx",
   "fields": {
