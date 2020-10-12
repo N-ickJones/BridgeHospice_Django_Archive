@@ -601,14 +601,6 @@
 },
 {
   "model": "contenttypes.contenttype",
-  "pk": 76,
-  "fields": {
-    "app_label": "core_forms",
-    "model": "profile"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
   "pk": 77,
   "fields": {
     "app_label": "core_plugins",
