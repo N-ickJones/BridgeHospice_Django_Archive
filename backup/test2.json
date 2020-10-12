@@ -601,14 +601,6 @@
 },
 {
   "model": "contenttypes.contenttype",
-  "pk": 78,
-  "fields": {
-    "app_label": "core_forms",
-    "model": "volunteerapplication"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
   "pk": 79,
   "fields": {
     "app_label": "background_task",
