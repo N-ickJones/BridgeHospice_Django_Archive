@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{% endblock title %}
+
+{% block navbar %}
+{% endblock navbar %}
+
+{% block content %}
+<div class="container">
+    <div class="row pt-3">
+        <div class="col-12">
+            {% for post in posts %}
+                <div>
+                    {#<b>post_id:</b> {{post.id}}<br>#}
+                    <b>post_created_time:</b> {{post.created_time}}<br>
+                    <b>post_message:</b> {{post.message}}<br>
+
+                    {% for attachment in attachments %}
+                        {% if attachment.post == post %}
+
+                            {% if post.message != attachment.description %}
+                                <b>attachment_description:</b> {{attachment.description}}<br>
+                            {% endif %}
+
+                            {# <b>attachment_url:</b> {{attachment.url}}<br> #}
+
+                            {% for image in images %}
+                                {% if image.attachment == attachment %}
+                                    <img src="{{image.src}}" style="height: {{image.height}}px; width: {{image.width}}px" /><br>
+                                {% endif %}
+                            {% endfor %}
+
+                            {% for target in target %}
+                                {% if target.attachment == attachment %}
+                                    {#<b>target_url:</b> {{target.url}}<br>#}
+                                {% endif %}
+                            {% endfor %}
+
+                        {% endif %}
+                    {% endfor %}
+
+                </div>
+                <br>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

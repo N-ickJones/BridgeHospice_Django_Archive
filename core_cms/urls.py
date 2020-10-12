@@ -29,7 +29,7 @@ urlpatterns += ( #i18n_patterns(
     url(r'^admin/', admin.site.urls),  # NOQA
     url(r'^', include('cms.urls')),
     path('forms/', include('core_forms.urls', namespace='forms')),
-    path('dashboard/', include('core_app.urls', namespace='dashboard')),
+    path('app/', include('core_app.urls', namespace='app')),
 )
 
 # This is only needed when using runserver.
