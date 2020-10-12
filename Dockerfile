@@ -18,7 +18,8 @@ RUN pip install -r requirements.txt
 COPY . /app
 
 # Install Netcat to ensure app start transaction... used in entrypoint.sh
-RUN apt-get update && apt-get -y install netcat
+RUN apt-get update && apt-get -y install netcat && apt-get -y install cron 
+# && apt-get install cron
 
     # Cron
     # RUN apt-get -y install cron

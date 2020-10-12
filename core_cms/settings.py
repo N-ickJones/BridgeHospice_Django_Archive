@@ -59,11 +59,16 @@ INSTALLED_APPS = [
     'djangocms_googlemap',
     'djangocms_video',
     'crispy_forms',
+    'django_crontab',
 
     'core_cms',
     'core_app',
     'core_plugins',
     'core_forms',
+]
+
+CRONJOBS = [
+    #('*/1 * * * *', 'core_app.cron.refresh_posts', '>> /tmp/test.log'),
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

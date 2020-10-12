@@ -16,7 +16,13 @@ echo "Loading User Groups Fixture into PostgreSQL"
 echo "-- Finished Startup Commands --"
 
 # Run Cronjobs and tail the log file
-# cron && tail -f /var/log/cron.log
+
+python manage.py crontab add
+python manage.py crontab show
+cron
+
+ #&& tail -f /var/log/cron.log
+#CMD /usr/sbin/cron -f
 
 python manage.py collectstatic --noinput > /dev/null 2>&1
 
