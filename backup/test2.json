@@ -25199,17 +25199,5 @@
     "must_always_publish_author_credit": false,
     "must_always_publish_copyright": false
   }
-},
-{
-  "model": "core_forms.profile",
-  "pk": 1,
-  "fields": {
-    "user": 2,
-    "street_address": "",
-    "city": "",
-    "state": "TX",
-    "zip_code": "",
-    "mobile_phone": ""
-  }
 }
 ]
