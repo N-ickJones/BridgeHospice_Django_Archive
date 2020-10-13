@@ -8,42 +8,47 @@
 
 {% block content %}
 <div class="container">
-    <div class="row pt-3">
-        <div class="col-12">
-            {% for post in posts %}
-                <div>
-                    {#<b>post_id:</b> {{post.id}}<br>#}
-                    <b>post_created_time:</b> {{post.created_time}}<br>
-                    <b>post_message:</b> {{post.message}}<br>
+    {% for post in posts %}
+        <div class="row p-3 card" style="background-color: #{%if forloop.counter0|divisibleby:2 %}f2cdb5{% else %}bac9db{% endif %}">
+            <div class="col-12">
+            {#<b>post_id:</b> {{post.id}}<br>#}
+            {#{post.created_time}#}
 
-                    {% for attachment in attachments %}
-                        {% if attachment.post == post %}
+            {% for attachment in attachments %}
+                {% if attachment.post == post %}
 
-                            {% if post.message != attachment.description %}
-                                <b>attachment_description:</b> {{attachment.description}}<br>
-                            {% endif %}
+                    {% if post.message != attachment.description %}
+                        <div class="d-flex justify-content-center mb-3">
+                            <p class="text-center {%if forloop.counter0|divisibleby:2 %}{% else %}{% endif %}" style="max-width: 600px">{{attachment.description}}</p>
+                        </div>
+                        
+                    {% endif %}
 
-                            {# <b>attachment_url:</b> {{attachment.url}}<br> #}
+                    {% for image in images %}
+                        {% if image.attachment == attachment %}
+                            <div class="d-flex justify-content-center"><img class="img-fluid img-thumbnail" src="{{image.src}}" /></div>
+                        {% endif %}
+                    {% endfor %}
+                    
 
-                            {% for image in images %}
-                                {% if image.attachment == attachment %}
-                                    <img src="{{image.src}}" style="height: {{image.height}}px; width: {{image.width}}px" /><br>
-                                {% endif %}
-                            {% endfor %}
-
-                            {% for target in target %}
-                                {% if target.attachment == attachment %}
-                                    {#<b>target_url:</b> {{target.url}}<br>#}
-                                {% endif %}
-                            {% endfor %}
-
+                    {#{{attachment.url}}#}
+                    {% for target in target %}
+                        {% if target.attachment == attachment %}
+                            {#{{target.url}}#}
                         {% endif %}
                     {% endfor %}
 
-                </div>
-                <br>
+
+                {% endif %}
             {% endfor %}
+
+            <div class="d-flex justify-content-center mt-3">
+                <p class="text-center {%if forloop.counter0|divisibleby:2 %}{% else %}{% endif %}" style="max-width: 600px">{{post.message}}</p>
+            </div>
+
         </div>
     </div>
+    {% endfor %}
+       
 </div>
 {% endblock content %}
